@@ -1,0 +1,15 @@
+enum GENDER {
+  MALE
+  FEMALE
+}
+
+enum LANGUAGES {
+  FR
+  EN
+}
+
+enum DATE_STATUS {
+  PENDING
+  ACCEPTED
+  REFUSED
+}

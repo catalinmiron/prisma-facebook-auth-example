@@ -1,0 +1,13 @@
+
+# the name for the service (will be part of the service's HTTP endpoint)
+service: prisma-facebook-auth-example
+stage: ${env:PRISMA_STAGE}
+cluster: ${env:PRISMA_CLUSTER}
+secret: ${env:PRISMA_SECRET}
+
+datamodel:
+- datamodel/types.graphql
+- datamodel/enums.graphql
+
+# seed:
+  # import: seed.graphql
