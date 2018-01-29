@@ -5,8 +5,6 @@ import { getFacebookUser } from "../../utils/facebook"
 import { createPrismaUserFromFacebook } from "../../utils/auth"
 
 export default async (parent, { idToken }, ctx: Context, info) => {
-  // user's token.
-  let token = null
   let user = null
   try {
     const facebookUser = await getFacebookUser(idToken)
@@ -19,8 +17,8 @@ export default async (parent, { idToken }, ctx: Context, info) => {
       user = await createPrismaUserFromFacebook(ctx, facebookUser)
     }
     return {
-      token: jwt.sign({ userId: user.id }, process.env.APP_SECRET),
       ...user,
+      token: jwt.sign({ userId: user.id }, process.env.APP_SECRET)
     }
   } catch (error) {
     throw new Error(error)
